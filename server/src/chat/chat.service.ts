@@ -1,12 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { Message, Prisma } from '@prisma/client';
-import { MessageUpdatePayload } from './types';
-import { PrismaService } from './prisma.service';
+import { MessageUpdatePayload } from '../types';
+import { PrismaService } from '../prisma.service';
 
 @Injectable()
-export class AppService {
+export class ChatService {
   // инициализация сервиса `Prisma`
   constructor(private readonly prisma: PrismaService) {}
+
+  getHello(): string {
+    return 'hi';
+  }
 
   // получение всех сообщений
   async getMessages(): Promise<Message[]> {

@@ -19,11 +19,18 @@
   },
   "homepage": "https://github.com/Dilligi/psychology_project#readme",
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.14.12",
     "@nestjs/cli": "^10.1.18",
     "@prisma/client": "^5.3.1",
     "concurrently": "^8.2.1",
     "docker": "^1.0.0",
-    "prisma": "^5.3.1"
+    "prisma": "^5.3.1",
+    "react-icons": "^4.11.0",
+    "react-timeago": "^7.2.0",
+    "react-toastify": "^9.1.3",
+    "socket.io-client": "^4.7.2"
   },
   "devDependencies": {
     "@types/node": "^20.6.3",
