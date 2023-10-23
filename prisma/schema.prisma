@@ -10,10 +10,64 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum User {
+  Client
+  Psycho
+}
+
+enum Sex {
+  Male
+  Female
+}
+
+enum PsySex {
+  Male
+  Female
+  Default
+}
+
+model Client {
+  id       Int      @id @default(autoincrement())
+  room     Room?         
+  age      DateTime
+  timezone Int      @default(3)
+  problems String[]
+  name     String
+  email    String   @unique
+  password String
+  sex      Sex
+  psySex   PsySex   @default(Default)
+}
+
+model Psycho {
+  id       Int      @id @default(autoincrement())
+  rooms    Room[]
+  age      DateTime
+  timezone Int      @default(3)
+  problems String[]
+  name     String
+  email    String   @unique
+  password String
+  sex      Sex
+  desc     String   @default("")
+  rating   Float    @default(0)
+  document String   @default("")
+}
+
+model Room {
+  id       Int      @id @default(autoincrement())
+  client   Client   @relation(fields: [clientId], references: [id])
+  clientId Int      @unique
+  psycho   Psycho   @relation(fields: [psychoId], references: [id])
+  psychoId Int
+  messages Message[]
+}
+
 model Message {
   id        Int      @id @default(autoincrement())
-  userId    String
-  userName  String
+  room      Room     @relation(fields: [roomId], references: [id])
+  roomId    Int
   text      String
   createdAt DateTime @default(now())
+  createdBy User
 }

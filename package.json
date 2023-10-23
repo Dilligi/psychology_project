@@ -26,6 +26,7 @@
     "@prisma/client": "^5.3.1",
     "concurrently": "^8.2.1",
     "docker": "^1.0.0",
+    "next-auth": "^4.24.3",
     "prisma": "^5.3.1",
     "react-icons": "^4.11.0",
     "react-timeago": "^7.2.0",
